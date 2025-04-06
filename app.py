@@ -1,17 +1,13 @@
-
 import streamlit as st
 import requests
 import gspread
+import os
 from datetime import datetime
 
-import os
-from dotenv import load_dotenv
-
-load_dotenv()  # Load the .env file
-
-API_KEY = os.getenv("API_FOOTBALL_KEY")
-GOOGLE_SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
-SERVICE_ACCOUNT_PATH = os.getenv("GOOGLE_CREDENTIALS_PATH")
+# For Streamlit Cloud
+API_KEY = st.secrets["API_FOOTBALL_KEY"]
+GOOGLE_SHEET_ID = st.secrets["GOOGLE_SHEET_ID"]
+SERVICE_ACCOUNT_PATH = st.secrets["GOOGLE_CREDENTIALS_PATH"]
 
 BASE_URL = "https://v3.football.api-sports.io"
 headers = {"x-apisports-key": API_KEY}
