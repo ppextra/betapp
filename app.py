@@ -4,9 +4,14 @@ import requests
 import gspread
 from datetime import datetime
 
-API_KEY = "YOUR_API_FOOTBALL_KEY"
-GOOGLE_SHEET_ID = "YOUR_GOOGLE_SHEET_ID"
-SERVICE_ACCOUNT_PATH = "credentials.json"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load the .env file
+
+API_KEY = os.getenv("API_FOOTBALL_KEY")
+GOOGLE_SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
+SERVICE_ACCOUNT_PATH = os.getenv("GOOGLE_CREDENTIALS_PATH")
 
 BASE_URL = "https://v3.football.api-sports.io"
 headers = {"x-apisports-key": API_KEY}
